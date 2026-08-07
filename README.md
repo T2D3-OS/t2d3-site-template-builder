@@ -1,10 +1,19 @@
 # t2d3-site-template-builder
 
-T2D3 Website Builder **starter template — Builder** (technical trust ×
-code-native dark). Part of the website-template framework
-(`docs/plans/website-template-framework.md` in `t2d3-playbook-app`); the
-canonical source lives in that monorepo under `site-templates/builder/` and is
-mirrored out for visibility.
+**Builder** — a benchmark-derived B2B SaaS website starter template (technical trust × code-native dark).
+A code-native dark site where the product demos itself in its own dialect — install line first, proof beside it.
+
+![Preview](docs/preview.png)
+
+One of five starter templates behind the [T2D3 OS](https://www.t2d3.pro) Website
+Builder: the app turns a company's locked go-to-market foundation (ICP,
+personas, value props, brand) into a complete site spec, and this template
+renders it — the architecture is reviewed once, every build only fills
+content. Derived from a benchmark study of 75 top sub-$100M-ARR SaaS sites:
+patterns and roles, never any single site's copy or trade dress.
+
+Canonical source: `site-templates/builder/` in the `t2d3-playbook-app` monorepo
+(this repo is a read-only mirror, synced on release).
 
 Identical architecture and section contract to `t2d3-site-template-utility`
 (see its README for the fill-content flow) — this template differs in SKIN:
