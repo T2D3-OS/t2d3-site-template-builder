@@ -1,0 +1,163 @@
+{
+  "_readme": "SAMPLE CONTENT — the build agent replaces this whole file with the real spec from GET /api/website-builder/build-spec/:requestId. Shapes mirror that endpoint. The sample follows the Builder template's code-native register so the repo runs (and reviews) standalone.",
+  "brand": {
+    "colors": { "primary": "#a78bfa", "secondary": "#94a3b8", "accent": "#a78bfa", "text": "#e6e9ef", "neutralDark": "#0b0e13", "neutralLight": "#171c24" },
+    "fonts": { "heading": "Inter", "body": "Inter" },
+    "logos": { "color": null, "white": null, "black": null, "icon": null },
+    "faviconUrl": null,
+    "pack": { "heroByPage": {}, "ogByPage": {}, "ogDefault": null, "backgrounds": [], "featureIcons": [], "illustrations": [] }
+  },
+  "theme": { "mode": "dark", "density": "regular", "motion": "subtle" },
+  "template": { "key": "builder", "version": 1 },
+  "ai_artifacts": {
+    "llms_txt": null,
+    "llms_full_txt": null,
+    "json_ld": null,
+    "site_url": null,
+    "visible_ai_label": "Parts of this site were drafted with AI assistance and reviewed by our team."
+  },
+  "site": {
+    "title": "Woodgrove Webhooks",
+    "description": "Sample content for the Builder starter template.",
+    "config": { "domain": null },
+    "pages": [
+      {
+        "title": "Home",
+        "sort_order": 0,
+        "slug": "/",
+        "page_kind": "home",
+        "meta_description": "Reliable webhook delivery for engineering teams — one endpoint, retries handled, full replay.",
+        "sections": [
+          {
+            "kind": "hero",
+            "variant": "centered",
+            "heading": "Webhooks that never silently drop",
+            "subheading": "Ingest, retry, and replay every event your product emits — with a delivery log your customers can see.",
+            "body": "",
+            "fields": { "primary": { "label": "Start free", "href": "/pricing" }, "secondary": { "label": "Read the docs", "href": "/product" } }
+          },
+          {
+            "kind": "code_block",
+            "variant": "terminal_one_liner",
+            "heading": "",
+            "body": "",
+            "fields": { "command": "npm install @woodgrove/webhooks" }
+          },
+          {
+            "kind": "code_block",
+            "variant": "tabs_multi_lang",
+            "heading": "Send your first event in four lines",
+            "body": "",
+            "fields": { "tabs": [
+              { "lang": "TypeScript", "code": "import { Woodgrove } from \"@woodgrove/webhooks\";\n\nconst wg = new Woodgrove(process.env.WG_KEY);\nawait wg.events.send({ type: \"invoice.paid\", data: { id: \"inv_42\" } });" },
+              { "lang": "Python", "code": "from woodgrove import Woodgrove\n\nwg = Woodgrove(os.environ[\"WG_KEY\"])\nwg.events.send(type=\"invoice.paid\", data={\"id\": \"inv_42\"})" },
+              { "lang": "cURL", "code": "curl -X POST https://api.example.com/v1/events \\\n  -H \"Authorization: Bearer $WG_KEY\" \\\n  -d '{\"type\":\"invoice.paid\",\"data\":{\"id\":\"inv_42\"}}'" }
+            ] }
+          },
+          {
+            "kind": "logo_cloud",
+            "variant": "row",
+            "heading": "",
+            "body": "",
+            "fields": { "logos": [{ "name": "Fabrikam" }, { "name": "Contoso" }, { "name": "Tailspin" }, { "name": "Northwind" }] }
+          },
+          {
+            "kind": "feature_grid",
+            "variant": "cards_3",
+            "heading": "Built for the failure cases",
+            "body": "",
+            "fields": { "bullets": [
+              { "title": "Retries with backoff", "body": "Exponential backoff with jitter, per-endpoint circuit breakers, dead-letter queues." },
+              { "title": "Full replay", "body": "Re-send any event or any window of events — idempotency keys included." },
+              { "title": "Customer-visible logs", "body": "Give your customers the delivery log, so support stops guessing." }
+            ] }
+          },
+          {
+            "kind": "trust_security",
+            "variant": "badge_row",
+            "heading": "Enterprise-ready from day one",
+            "body": "",
+            "fields": { "badges": [
+              { "name": "SOC 2 Type II" },
+              { "name": "GDPR" },
+              { "name": "SSO / SAML" },
+              { "name": "Encryption at rest" }
+            ] }
+          },
+          {
+            "kind": "cta",
+            "variant": "banner",
+            "heading": "Ship reliable webhooks this sprint",
+            "body": "",
+            "fields": { "primary": { "label": "Start free", "href": "/pricing" } }
+          }
+        ],
+        "image_briefs": []
+      },
+      {
+        "title": "Product",
+        "sort_order": 1,
+        "slug": "/product",
+        "page_kind": "features",
+        "meta_description": "Ingestion, retries, replay, and observability — the whole delivery pipeline.",
+        "sections": [
+          { "kind": "hero", "variant": "centered", "heading": "The delivery pipeline, end to end", "subheading": "", "body": "", "fields": {} },
+          { "kind": "feature_grid", "variant": "list_alternating", "heading": "", "body": "", "fields": { "bullets": [
+            { "title": "Ingest at any volume", "body": "One endpoint, ordered per stream, deduplicated by idempotency key." },
+            { "title": "Retry without thundering herds", "body": "Backoff with jitter and per-endpoint circuit breakers protect your customers' servers." },
+            { "title": "Observe every hop", "body": "Latency, attempts, and payloads in one queryable log — exportable to your warehouse." }
+          ] } },
+          { "kind": "comparison", "variant": "vs_table", "heading": "Against building it in-house", "body": "", "fields": { "competitor": "In-house queue", "rows": [
+            { "capability": "Retries + backoff", "us": "Built in", "them": "You maintain it" },
+            { "capability": "Customer-visible logs", "us": "Built in", "them": "Rarely built" },
+            { "capability": "Replay any window", "us": "One call", "them": "Ad-hoc scripts" }
+          ] } },
+          { "kind": "faq", "variant": "list", "heading": "Evaluator questions", "body": "", "fields": { "items": [
+            { "q": "How do you handle ordering?", "a": "Events are ordered per stream key; cross-stream ordering is configurable." },
+            { "q": "What about idempotency?", "a": "Every event carries an idempotency key; receivers can safely retry." },
+            { "q": "Can we self-host?", "a": "A self-hosted runner is available on the Business plan." },
+            { "q": "What are the free limits?", "a": "10k events/month, 7-day log retention, one endpoint." }
+          ] } },
+          { "kind": "cta", "variant": "centered", "heading": "Try it against your staging endpoint", "body": "", "fields": { "primary": { "label": "Start free", "href": "/pricing" } } }
+        ],
+        "image_briefs": []
+      },
+      {
+        "title": "Pricing",
+        "sort_order": 2,
+        "slug": "/pricing",
+        "page_kind": "pricing",
+        "meta_description": "Free tier, public usage pricing, honest limits.",
+        "sections": [
+          { "kind": "hero", "variant": "centered", "heading": "Usage pricing you can predict", "subheading": "Every plan self-serve. The meter is on the dashboard, not in the invoice.", "body": "", "fields": {} },
+          { "kind": "pricing", "variant": "tiers_3", "heading": "", "body": "", "fields": { "tiers": [
+            { "name": "Free", "price": "$0", "period": "mo", "description": "For side projects", "features": ["10k events/mo", "7-day retention", "1 endpoint"], "cta": "Start free", "href": "/contact" },
+            { "name": "Pro", "price": "$49", "period": "mo", "description": "For production workloads", "features": ["1M events/mo", "30-day retention", "Unlimited endpoints"], "cta": "Start with Pro", "href": "/contact", "highlighted": true },
+            { "name": "Business", "price": "$249", "period": "mo", "description": "For scale + compliance", "features": ["10M events/mo", "SSO / SAML", "Self-hosted runner"], "cta": "Talk to us", "href": "/contact" }
+          ] } },
+          { "kind": "faq", "variant": "accordion", "heading": "Pricing questions", "body": "", "fields": { "items": [
+            { "q": "What counts as an event?", "a": "One accepted POST to the ingest endpoint. Retries we make on your behalf are free." },
+            { "q": "What happens at the limit?", "a": "We keep ingesting for 48 hours and alert you — nothing drops silently." },
+            { "q": "Can I cancel any time?", "a": "Yes, from the dashboard; exports stay available for 90 days." }
+          ] } },
+          { "kind": "cta", "variant": "banner", "heading": "Start on Free today", "body": "", "fields": { "primary": { "label": "Get started", "href": "/contact" } } }
+        ],
+        "image_briefs": []
+      },
+      {
+        "title": "Contact",
+        "sort_order": 3,
+        "slug": "/contact",
+        "page_kind": "contact",
+        "meta_description": "Questions the docs don't answer — an engineer replies.",
+        "sections": [
+          { "kind": "hero", "variant": "centered", "heading": "Talk to an engineer", "subheading": "Support, architecture reviews, or anything the docs don't cover.", "body": "", "fields": {} },
+          { "kind": "rich_text", "variant": "prose", "heading": "", "body": "Email hello@example.com and an engineer on the delivery team answers within one business day.\n\nIf you'd rather just try it, the free tier needs no conversation at all.", "fields": {} },
+          { "kind": "cta", "variant": "split", "heading": "Prefer to start now?", "body": "The free tier is self-serve.", "fields": { "primary": { "label": "Email us", "href": "mailto:hello@example.com" }, "secondary": { "label": "Start free", "href": "/pricing" } } }
+        ],
+        "image_briefs": []
+      }
+    ],
+    "blog_posts": []
+  }
+}
